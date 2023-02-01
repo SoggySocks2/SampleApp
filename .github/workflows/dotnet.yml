@@ -35,7 +35,7 @@ jobs:
     - name: Test with dotnet
       run: dotnet test ./SampleApp.sln --configuration Release
     - name: dotnet publish
-      run: dotnet publish ./src/SampleApp.WebUI/SampleApp.WebUI.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish ./SampleApp.WebUI/SampleApp.WebUI.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
     # upload the published website code artifacts
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
