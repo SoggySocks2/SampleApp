@@ -66,11 +66,11 @@ jobs:
         path: .net-app
   
     #Download the bicep templates from previous job
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v3
-      with:
-        name: bicep-template
-        path: bicep-template
+    #- name: Download artifact from build job
+    #  uses: actions/download-artifact@v3
+    #  with:
+    #    name: bicep-template
+    #    path: bicep-template
         
    #Login in your azure subscription using a service principal (credentials stored as GitHub Secret in repo)
     - name: Azure Login
