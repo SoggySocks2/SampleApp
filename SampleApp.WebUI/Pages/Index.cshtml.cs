@@ -7,6 +7,7 @@ namespace SampleApp.WebUI.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         public string HelloMessage { get; set; } = string.Empty;
+        public string ExceptionMessage { get; set; } = string.Empty;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -16,6 +17,7 @@ namespace SampleApp.WebUI.Pages
         public void OnGet()
         {
             HelloMessage = new Messages().Hello;
+            ExceptionMessage = new InvalidFormatException().Message;
         }
 
     }
