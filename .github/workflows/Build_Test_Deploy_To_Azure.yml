@@ -33,7 +33,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -54,24 +54,31 @@ jobs:
 
       - name: Build
         run: dotnet build --configuration Release
-
+          
+  Test:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    needs: Build
+    
+    steps:
       - name: Test
-        run: dotnet test ./SampleApp.sln --configuration Release
-      
-      - name: Publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet test ./SampleApp.sln --configuration Release        
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
-
-  deploy:
+      
+      - name: Publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        
+  Deploy:
     permissions:
       contents: none
     runs-on: ubuntu-latest
-    needs: build
+    needs: Test
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
