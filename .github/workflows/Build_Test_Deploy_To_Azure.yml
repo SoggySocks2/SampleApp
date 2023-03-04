@@ -66,10 +66,6 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
-          
-      - name: Official SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v1.2.0
-
         
   Deploy:
     permissions:
