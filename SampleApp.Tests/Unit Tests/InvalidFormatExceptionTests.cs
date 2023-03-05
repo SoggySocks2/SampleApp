@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using SampleApp.Library;
-
-namespace SampleApp.Tests.Unit_Tests
+﻿namespace SampleApp.Tests.Unit_Tests
 {
     public class InvalidFormatExceptionTests
     {
@@ -12,6 +9,5 @@ namespace SampleApp.Tests.Unit_Tests
             ex.Should().BeOfType<InvalidFormatException>();
             ex.Message.Should().Be("String was in an invalid format");
         }
-
     }
 }

@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using SampleApp.Library;
-
-namespace SampleApp.Tests.Unit_Tests
+﻿namespace SampleApp.Tests.Unit_Tests
 {
     public class MessagesTests
     {

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using SampleApp.Library;
+﻿using SampleApp.Library;
 
 namespace SampleApp.WebUI.Pages
 {
@@ -8,6 +7,7 @@ namespace SampleApp.WebUI.Pages
         private readonly ILogger<IndexModel> _logger;
         public string HelloMessage { get; set; } = string.Empty;
         public string ExceptionMessage { get; set; } = string.Empty;
+        public DateTime CurrentUtcDateTime { get; set; } = DateTime.UtcNow;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -18,7 +18,7 @@ namespace SampleApp.WebUI.Pages
         {
             HelloMessage = new Messages().Hello;
             ExceptionMessage = new InvalidFormatException().Message;
+            CurrentUtcDateTime = DateTime.UtcNow;
         }
-
     }
 }
